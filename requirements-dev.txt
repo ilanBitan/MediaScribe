@@ -1,0 +1,6 @@
+# Install the application dependencies first.
+-r requirements.txt
+
+# Tools required by the automated test suite.
+pytest==9.2.0
+httpx==0.28.1

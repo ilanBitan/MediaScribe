@@ -1,0 +1,32 @@
+# Python environments and generated files.
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local editor settings.
+.idea/
+.vscode/
+
+# Keep the samples directory without uploading personal recordings.
+samples/*
+!samples/.gitkeep
+
+# Credentials and local logs.
+.env
+.env.*
+!.env.example
+*.log
+
+# Internal learning notes and packaging output.
+OriginAI-Work-Log.md
+submission/
+dist/
+*.zip
+
+# Local experiment and packaging helper.
+transcribe_demo.py
+create_submission.py

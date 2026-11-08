@@ -1,0 +1,14 @@
+# Constrain dependency versions to the tested environment.
+-c requirements-lock.txt
+
+# Application and HTTP server.
+fastapi==0.162.2
+uvicorn==0.54.0
+python-multipart==0.0.32
+pydantic==2.14.3
+starlette==1.7.0
+
+# Local inference and media processing.
+faster-whisper==1.2.1
+av==17.1.0
+numpy==2.2.6

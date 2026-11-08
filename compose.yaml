@@ -1,0 +1,39 @@
+services:
+  transcription:
+    build:
+      context: .
+      target: runtime
+
+    # Expose the application only on this computer.
+    ports:
+      - "127.0.0.1:8000:8000"
+
+    environment:
+      TRANSCRIPTION_MODEL: Systran/faster-whisper-small
+      MAX_UPLOAD_BYTES: "26214400"
+      MAX_AUDIO_SECONDS: "300"
+
+    # Preserve downloaded models when the container is recreated.
+    volumes:
+      - model-cache:/home/app/.cache/huggingface
+
+    init: true
+
+    # Allow an active short transcription to finish during normal shutdown.
+    stop_grace_period: 60s
+
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=5).close()"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+      # Initial startup may include downloading the model.
+      start_period: 10m
+
+volumes:
+  model-cache:

@@ -1,0 +1,21 @@
+# Local environments and development metadata.
+venv/
+.venv/
+.idea/
+.git/
+
+# Generated Python and test files.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Personal recordings and local secrets.
+samples/
+.env
+.env.*
+!.env.example
+
+# Local documentation is not required by the application image.
+OriginAI-Work-Log.md
